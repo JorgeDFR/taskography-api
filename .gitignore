@@ -103,7 +103,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+#.env
 .venv
 env/
 venv/
@@ -131,3 +131,6 @@ dmypy.json
 
 # Datasets
 /datasets
+
+# Results
+.results

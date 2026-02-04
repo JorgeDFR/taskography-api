@@ -22,14 +22,13 @@ RUN apt-get update && apt-get install -y \
 # Taskography-API
 # ---------------------------
 RUN mkdir -p ${HOME}/workspace
-# RUN git clone https://github.com/JorgeDFR/taskography-api.git \
-#     --branch=jorge_devel \
-#     --recurse-submodules \
-#     ${HOME}/workspace/taskography-api
+RUN git clone https://github.com/JorgeDFR/taskography-api.git \
+    --recurse-submodules \
+    ${HOME}/workspace/taskography-api
 
-# RUN cd ${HOME}/workspace/taskography-api && \
-#     pip install . && \
-#     pip install -r requirements.txt
+RUN cd ${HOME}/workspace/taskography-api && \
+    pip install . && \
+    pip install -r requirements.txt
 
 # ---------------------------
 # Switch user and set workdir

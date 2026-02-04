@@ -9,16 +9,13 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /tmp/.X11-unix:/tmp/.X11-unix
       - /dev/dri:/dev/dri
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock # DoD (Docker-in-Docker) setup
+      - /tmp:/tmp # Bug fix for DoD (Docker-in-Docker) setup
       - ${HOME}/data:/home/user/data  # Folder with the datasets (Gibson, etc.)
       - ${HOME}/devel/3dsg_devel/taskography-api:/home/user/workspace/taskography-api  # Temp: devel
-      - /tmp:/tmp # Bug fix for DoD (Docker-in-Docker) setup
     environment:
       - color_prompt=no
       - DISPLAY=${DISPLAY}
-      - NVIDIA_VISIBLE_DEVICES=all
-      - NVIDIA_DRIVER_CAPABILITIES=all
     network_mode: host
     tty: true
     stdin_open: true
-    runtime: nvidia
